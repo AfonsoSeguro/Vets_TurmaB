@@ -12,6 +12,11 @@ namespace Veterinarios.Models
         public string nCelula { get; set;}
         public string foto { get; set;}
 
+        public ICollection<Consultas> listaConsultas { get; set; }
 
+
+        public Veterinarios(){
+            listaConsultas = new HashSet<Consultas>();
+        }
     }
 }

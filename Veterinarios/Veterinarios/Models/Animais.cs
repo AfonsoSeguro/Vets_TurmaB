@@ -20,5 +20,12 @@ namespace Veterinarios.Models{
         public int donoFK { get; set; }
         public Donos dono { get; set; }
 
+
+        public ICollection<Consultas> listaConsultas { get; set; }
+
+        public Animais(){
+            this.listaConsultas = new HashSet<Consultas>();
+        }
+
     }
 }
