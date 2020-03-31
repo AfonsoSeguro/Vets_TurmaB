@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Veterinarios.Models
 {
-    public class Dono{
+    public class Donos{
 
         public int ID { get; set; }
         public string nome { get; set; }
