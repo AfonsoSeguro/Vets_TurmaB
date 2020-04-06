@@ -15,7 +15,7 @@ namespace Veterinarios.Models
         public string Obs { get; set; }
 
         [ForeignKey(nameof(vet))]
-        public Veterinarios vetFK { get; set; }
+        public Veter vetFK { get; set; }
         public int vet { get; set; }
 
 

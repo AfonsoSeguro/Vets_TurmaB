@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Veterinarios.Models
 {
-    public class Veterinarios{
+    public class Veter{
 
         public int ID { get; set;}
         public string nome { get; set;}
@@ -15,7 +15,7 @@ namespace Veterinarios.Models
         public ICollection<Consultas> listaConsultas { get; set; }
 
 
-        public Veterinarios(){
+        public Veter(){
             listaConsultas = new HashSet<Consultas>();
         }
     }
