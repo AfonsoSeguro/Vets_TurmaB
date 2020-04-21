@@ -8,8 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Veterinarios.Data;
 using Veterinarios.Models;
 
-namespace Veterinarios.Controllers
-{
+namespace Veterinarios.Controllers{
     public class DonosController : Controller{
         private readonly VetsBD bd;
 
@@ -25,13 +24,12 @@ namespace Veterinarios.Controllers
         // GET: Donos/Details/5
         public async Task<IActionResult> Details(int? id){
             if (id == null){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            var donos = await bd.Donos
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var donos = await bd.Donos.FirstOrDefaultAsync(d => d.ID == id);
             if (donos == null){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             return View(donos);
@@ -59,12 +57,12 @@ namespace Veterinarios.Controllers
         // GET: Donos/Edit/5
         public async Task<IActionResult> Edit(int? id){
             if (id == null){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var donos = await bd.Donos.FindAsync(id);
             if (donos == null){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
             return View(donos);
         }
@@ -76,7 +74,7 @@ namespace Veterinarios.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,nome,NIF")] Donos donos){
             if (id != donos.ID){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             if (ModelState.IsValid){
@@ -86,7 +84,7 @@ namespace Veterinarios.Controllers
                 }
                 catch (DbUpdateConcurrencyException){
                     if (!DonosExists(donos.ID)){
-                        return NotFound();
+                        return RedirectToAction(nameof(Index));
                     }
                     else{
                         throw;
@@ -100,13 +98,13 @@ namespace Veterinarios.Controllers
         // GET: Donos/Delete/5
         public async Task<IActionResult> Delete(int? id){
             if (id == null){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var donos = await bd.Donos
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (donos == null){
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             return View(donos);

@@ -18,5 +18,6 @@ namespace Veterinarios.Data
         public VetsBD(DbContextOptions<VetsBD> options) : base(options){
 
         }
+
     }
 }

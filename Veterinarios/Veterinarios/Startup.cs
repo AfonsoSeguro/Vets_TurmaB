@@ -61,7 +61,7 @@ namespace Veterinarios
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Veters}/{action=Index}/{id?}");
             });
         }
     }

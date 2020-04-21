@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Veterinarios.Models.Veter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Veterinarios</h1>
+
+<p>
+    <a asp-action="Create">Adiciona um novo veterinario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nCelula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.foto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nCelula)
+            </td>
+            <td>
+                <img src ="~/ImagensAppVets/Imagens/Vets/@Html.DisplayFor(modelItem => item.foto)" height="50"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
